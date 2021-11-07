@@ -16,12 +16,43 @@ import javax.swing.table.DefaultTableModel;
  * @author WINDOWS 10
  */
 public class customer extends javax.swing.JFrame {
-
     /**
      * Creates new form customer
      */
     public customer() {
         initComponents();
+        getData();
+    }
+    
+    public void getData() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("Connecting to database");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy_management", "root", "");
+            System.out.println("Connected to databse");
+            
+            Statement st = con.createStatement();
+            String sql = "select * from customer";
+            ResultSet rs = st.executeQuery(sql);
+            
+            while (rs.next()) {
+                String id = String.valueOf(rs.getInt("customer_id"));
+                String name = rs.getString("name");
+                String address = rs.getString("address");
+                String phone = String.valueOf(rs.getInt("phone"));
+               
+                
+                String tbData[] = {id, name,address,phone};
+                DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
+
+                tblModel.addRow(tbData);
+                
+                
+            }
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -205,34 +236,6 @@ public class customer extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("Connecting to database");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy_management", "root", "");
-            System.out.println("Connected to databse");
-            
-            Statement st = con.createStatement();
-            String sql = "select * from customer";
-            ResultSet rs = st.executeQuery(sql);
-            
-            while (rs.next()) {
-                String id = String.valueOf(rs.getInt("customer_id"));
-                String name = rs.getString("name");
-                String address = rs.getString("address");
-                String phone = String.valueOf(rs.getInt("phone"));
-               
-                
-                String tbData[] = {id, name,address,phone};
-                DefaultTableModel tblModel = (DefaultTableModel)jTable1.getModel();
-                
-                tblModel.addRow(tbData);
-                
-            }
-            con.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
