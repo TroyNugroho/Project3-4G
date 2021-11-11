@@ -5,6 +5,8 @@
  */
 package pharmacy_management_system;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -22,11 +24,13 @@ public class customer extends javax.swing.JFrame {
     public customer() {
         initComponents();
         getData();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
     
     public void getData() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Connecting to database");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmacy_management", "root", "");
             System.out.println("Connected to databse");
