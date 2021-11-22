@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Okt 2021 pada 03.11
+-- Waktu pembuatan: 15 Nov 2021 pada 13.30
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.1
 
@@ -81,7 +81,8 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`customer_id`, `name`, `address`, `phone`) VALUES
 (1, 'Alexander', 'Malang', 876544221),
-(2, 'Noe', 'Kediri', 876544222);
+(2, 'Noe', 'Kediri', 876544222),
+(3, 'Budi', 'Jakarta', 876544211);
 
 -- --------------------------------------------------------
 
@@ -112,7 +113,10 @@ INSERT INTO `medicines` (`medicine_id`, `name`, `type_id`, `category_id`, `expir
 (5, 'Neozep', 2, 2, '2022-01-31', 2600, 100, 'Flu medicine and stuffy nose'),
 (6, 'Listerine Coolmint 500ml', 5, 2, '2022-01-31', 31200, 50, 'Mouthwash'),
 (7, 'Proris Ibuprofen', 2, 3, '2022-01-31', 10000, 100, ' 400 MG STRIP 10 TABLET'),
-(8, 'Dulcolax Tablet ', 2, 3, '2022-01-31', 20000, 50, '5 Mg Obat [2 strip');
+(9, 'Panadol', 2, 2, '2021-12-31', 7000, 100, 'Panadol '),
+(10, 'Tolak Angin', 5, 1, '2021-12-31', 5000, 100, 'Tolak Angin'),
+(12, 'Antangin', 5, 1, '2021-12-31', 5000, 100, 'Antangin'),
+(13, 'Tolak Angin', 5, 1, '2021-12-31', 10000, 100, 'Tolak Angin Sachet');
 
 -- --------------------------------------------------------
 
@@ -163,6 +167,56 @@ INSERT INTO `type` (`type_id`, `type_name`) VALUES
 (6, 'Guttae'),
 (7, 'Extractum'),
 (8, 'Other');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in struktur untuk tampilan `view_medicines`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+CREATE TABLE `view_medicines` (
+`ID` int(11)
+,`Product` varchar(100)
+,`Type` varchar(20)
+,`Category` varchar(20)
+,`expired_date` date
+,`price` int(11)
+,`stock` int(11)
+,`description` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in struktur untuk tampilan `view_purchased`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+CREATE TABLE `view_purchased` (
+`ID` int(11)
+,`Product` varchar(100)
+,`Admin` varchar(20)
+,`Customer` varchar(20)
+,`amount` int(11)
+,`purchase_date` date
+);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `view_medicines`
+--
+DROP TABLE IF EXISTS `view_medicines`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_medicines`  AS  select `m`.`medicine_id` AS `ID`,`m`.`name` AS `Product`,`t`.`type_name` AS `Type`,`c`.`category_name` AS `Category`,`m`.`expired_date` AS `expired_date`,`m`.`price` AS `price`,`m`.`stock` AS `stock`,`m`.`description` AS `description` from ((`medicines` `m` join `type` `t` on((`m`.`type_id` = `t`.`type_id`))) join `category` `c` on((`m`.`category_id` = `c`.`category_id`))) ;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `view_purchased`
+--
+DROP TABLE IF EXISTS `view_purchased`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_purchased`  AS  select `p`.`purchase_id` AS `ID`,`m`.`name` AS `Product`,`a`.`username` AS `Admin`,`c`.`name` AS `Customer`,`p`.`amount` AS `amount`,`p`.`purchase_date` AS `purchase_date` from (((`purchased` `p` join `medicines` `m` on((`p`.`medicines_id` = `m`.`medicine_id`))) join `admin` `a` on((`p`.`admin_id` = `a`.`admin_id`))) join `customer` `c` on((`p`.`customer_id` = `c`.`customer_id`))) ;
 
 --
 -- Indexes for dumped tables
@@ -229,13 +283,13 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT untuk tabel `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `medicines`
 --
 ALTER TABLE `medicines`
-  MODIFY `medicine_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `medicine_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `purchased`
