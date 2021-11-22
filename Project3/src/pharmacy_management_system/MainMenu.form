@@ -90,7 +90,7 @@
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\WINDOWS 10\Downloads\customer-journey.png"/>
+          <Image iconType="3" name="/pharmacy_management_system/Icons/customer-journey.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Show Customer"/>
       </Properties>
@@ -101,7 +101,7 @@
     <Component class="javax.swing.JButton" name="jButton4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\WINDOWS 10\Downloads\pharmacy.png"/>
+          <Image iconType="3" name="/pharmacy_management_system/Icons/pharmacy.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Show Medicine"/>
       </Properties>
@@ -123,7 +123,7 @@
           <Font name="Arial Narrow" size="18" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\WINDOWS 10\Downloads\calendar-date.png"/>
+          <Image iconType="3" name="/pharmacy_management_system/Icons/calendar-date.png"/>
         </Property>
       </Properties>
     </Component>
@@ -133,14 +133,14 @@
           <Font name="Arial Narrow" size="18" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\WINDOWS 10\Downloads\time-clock.png"/>
+          <Image iconType="3" name="/pharmacy_management_system/Icons/time-clock.png"/>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\WINDOWS 10\Downloads\orders.png"/>
+          <Image iconType="3" name="/pharmacy_management_system/Icons/orders.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Purchase history"/>
       </Properties>
@@ -151,15 +151,18 @@
     <Component class="javax.swing.JButton" name="jButton3">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\WINDOWS 10\Downloads\date-expired.png"/>
+          <Image iconType="3" name="/pharmacy_management_system/Icons/date-expired.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Expired Product"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton5">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\WINDOWS 10\Downloads\logout.png"/>
+          <Image iconType="3" name="/pharmacy_management_system/Icons/logout.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="LOGOUT"/>
       </Properties>
@@ -167,7 +170,7 @@
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\WINDOWS 10\Downloads\medicine-sign.png"/>
+          <Image iconType="3" name="/pharmacy_management_system/Icons/medicine-sign.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel4"/>
       </Properties>

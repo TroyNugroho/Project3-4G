@@ -88,7 +88,7 @@ public final class MainMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 10\\Downloads\\customer-journey.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharmacy_management_system/Icons/customer-journey.png"))); // NOI18N
         jButton2.setText("Show Customer");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,7 +96,7 @@ public final class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 10\\Downloads\\pharmacy.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharmacy_management_system/Icons/pharmacy.png"))); // NOI18N
         jButton4.setText("Show Medicine");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,12 +108,12 @@ public final class MainMenu extends javax.swing.JFrame {
         jLabel1.setText("Pharmacy System");
 
         jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 10\\Downloads\\calendar-date.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharmacy_management_system/Icons/calendar-date.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Arial Narrow", 1, 18)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 10\\Downloads\\time-clock.png")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharmacy_management_system/Icons/time-clock.png"))); // NOI18N
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 10\\Downloads\\orders.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharmacy_management_system/Icons/orders.png"))); // NOI18N
         jButton1.setText("Purchase history");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,13 +121,18 @@ public final class MainMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 10\\Downloads\\date-expired.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharmacy_management_system/Icons/date-expired.png"))); // NOI18N
         jButton3.setText("Expired Product");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
-        jButton5.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 10\\Downloads\\logout.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharmacy_management_system/Icons/logout.png"))); // NOI18N
         jButton5.setText("LOGOUT");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\WINDOWS 10\\Downloads\\medicine-sign.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pharmacy_management_system/Icons/medicine-sign.png"))); // NOI18N
         jLabel4.setText("jLabel4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -237,7 +242,15 @@ public final class MainMenu extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+         dispose();
+        purchased second = new purchased();
+        second.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
